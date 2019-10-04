@@ -1,5 +1,3 @@
-import stockApi from './stockApi';
-
-export default {
-  stockApi
+module.exports = {
+  stockApi: require('./stockApi')
 };
