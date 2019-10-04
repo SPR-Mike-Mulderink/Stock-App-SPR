@@ -66,3 +66,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Alpha Vantage
+
+API key: PXZD0QBQQZTN4V5U
+
+Mock API URL:
+https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=STZ&apikey=PXZD0QBQQZTN4V5U
+
+Mock API call. Example res.body.stocksArr from client:
+{
+	"stocksArr":["STZ", "MSFT", "BA", "SKYW"]
+}
