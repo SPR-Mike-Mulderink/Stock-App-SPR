@@ -1,3 +1,10 @@
-module.exports = {
-  stockApi: require('./stockApi')
-};
+exports.express = require('express');
+exports.path = require('path');
+exports.bodyParser = require('body-parser');
+exports.stockApi = require('./stockApi');
+exports.fetch = require('node-fetch');
+exports.pool = require('pg');
+exports.addUser = require('./postgresMiddleware/addUser');
+exports.PORT = 8080;
+exports.API_KEY = `PXZD0QBQQZTN4V5U`;
+exports.connectionString = `postgres://jgheotje:OUAmmMlvHPqPxrbUOCz3uiUbnX22dpHd@salt.db.elephantsql.com:5432/jgheotje`;
