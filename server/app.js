@@ -14,11 +14,11 @@ app.get('/userValue', userValue, (req, res) => {
 });
 
 app.post('/addUser', addUser, (req, res) => {
-  res.send(`Addded ${req.body.first_name} Brah`);
+  res.send(`Added ${req.body.first_name} Brah`);
 });
 
 app.post('/addStock', addStock, (req, res) => {
-  res.send(`Add ${req.body.stock_ticker} Brah`);
+  res.send(`Added ${req.body.stock_ticker} Brah`);
 });
 
 app.delete('/removeUser', removeUser, (req, res) => {
