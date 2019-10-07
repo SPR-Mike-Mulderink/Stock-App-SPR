@@ -14,7 +14,6 @@ module.exports = (req, res, next) => {
 
   pool
     .query(addUserQuery)
-    .then(res => console.log(res))
     .then(() => next())
     .catch(error => console.log(error));
 
