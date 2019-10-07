@@ -1,15 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const middleware = require('./middleware/middleware');
-const path = require('path')
+const { PORT, express, path, bodyParser, stockApi, addUser } = require('./middleware/middleware');
 const app = express();
-const PORT = 8080;
 
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.resolve(__dirname, '../build')));
 
-app.get('/stockApi', middleware.stockApi, (req, res) => {
+app.get('/stockApi', stockApi, (req, res) => {
   res.send(res.locals.stocksValueArr);
+});
+
+app.post('/addUser', addUser, (req, res) => {
+  res.send(`Addded Brah`);
 });
 
 app.use('*', (req, res) => {
