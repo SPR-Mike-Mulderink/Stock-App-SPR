@@ -1,6 +1,6 @@
 module.exports = (req, res, next) => {
 
-  const { API_KEY, fetch } = require('./middleware');
+  const { API_KEY, fetch } = require('./exports');
 
   Promise.all(req.body.stocksArr.map(stock =>
     fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stock}&apikey=${API_KEY}`)

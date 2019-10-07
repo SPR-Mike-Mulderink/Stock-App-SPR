@@ -1,6 +1,6 @@
 module.exports = (req, res, next) => {
 
-  const { connectionString, pool: { Pool } } = require('../middleware');
+  const { connectionString, pool: { Pool } } = require('../exports');
 
   const pool = new Pool({
     connectionString

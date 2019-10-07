@@ -1,4 +1,4 @@
-const { PORT, express, path, bodyParser, stockApi, addUser } = require('./middleware/middleware');
+const { PORT, express, path, bodyParser, stockApi, addUser } = require('./middleware/exports');
 const app = express();
 
 app.use(bodyParser.json());
