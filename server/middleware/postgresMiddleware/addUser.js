@@ -16,6 +16,7 @@ module.exports = async (req, res, next) => {
 
   pool
     .query(addUserQuery)
+    .then(() => res.cookie(req.body.user_name, hash))
     .then(() => next())
     .catch(error => console.log(error));
 

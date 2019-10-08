@@ -5,6 +5,7 @@ exports.stockApi = require('./stockApi');
 exports.fetch = require('node-fetch');
 exports.pool = require('pg');
 exports.bcrypt = require('bcrypt');
+exports.cookieParser = require('cookie-parser');
 exports.addUser = require('./postgresMiddleware/addUser');
 exports.removeUser = require('./postgresMiddleware/removeUser');
 exports.addStock = require('./postgresMiddleware/addStock');
