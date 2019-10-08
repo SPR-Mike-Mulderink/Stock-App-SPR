@@ -1,7 +1,8 @@
-const { PORT, express, path, bodyParser, stockApi, addUser, removeUser, addStock, removeStock, userValue, userLogin } = require('./middleware/exports');
+const { PORT, express, path, bodyParser, stockApi, addUser, removeUser, addStock, removeStock, userValue, userLogin, cookieParser } = require('./middleware/exports');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.resolve(__dirname, '../build')));
 
@@ -30,8 +31,8 @@ app.delete('/removeUser', removeUser, (req, res) => {
 });
 
 app.delete('/removeStock', removeStock, (req, res) => {
-  res.send(`Removed ${req.body.id} Brah`)
-})
+  res.send(`Removed ${req.body.id} Brah`);
+});
 
 app.use('*', (req, res) => {
   res.send(`Catch All`);
