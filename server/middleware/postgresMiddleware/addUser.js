@@ -1,4 +1,4 @@
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
 
   const { connectionString, bcryptHash, pool: { Pool } } = require('../exports');
 
@@ -6,10 +6,12 @@ module.exports = (req, res, next) => {
     connectionString
   });
 
+  const hash = await bcryptHash(req.body.password);
+
   const addUserQuery = {
     name: 'Added user to users_table',
     text: 'INSERT INTO users_table(last_name, first_name, user_name, password) VALUES($1, $2, $3, $4)',
-    values: [req.body.last_name, req.body.first_name, req.body.user_name, bcryptHash(req.body.password)]
+    values: [req.body.last_name, req.body.first_name, req.body.user_name, hash]
   };
 
   pool

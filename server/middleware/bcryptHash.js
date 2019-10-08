@@ -1,9 +1,7 @@
-module.exports = (password) => {
+module.exports = myPlaintextPassword => {
 
   const { bcrypt, saltRounds } = require('./exports');
 
-  const myPlaintextPassword = password;
-
-  return bcrypt.hashSync(myPlaintextPassword, saltRounds);
+  return bcrypt.hash(myPlaintextPassword, saltRounds);
 
 };
