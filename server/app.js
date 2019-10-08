@@ -1,17 +1,18 @@
-const { PORT, express, path, bodyParser, stockApi, addUser, removeUser, addStock, removeStock, userValue, userLogin, cookieParser } = require('./middleware/exports');
+const { PORT, express, path, bodyParser, stockApi, addUser, removeUser, addStock, removeStock, userValue, userLogin, cookieParser, cors } = require('./middleware/exports');
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.resolve(__dirname, '../build')));
 
-app.get('/stockApi', stockApi, (req, res) => {
-  res.send(res.locals.stocksValueArr);
-});
-
 app.get('/userValue', userValue, (req, res) => {
   res.send(res.locals);
+});
+
+app.post('/stockApi', stockApi, (req, res) => {
+  res.send(res.locals.stocksValueArr);
 });
 
 app.post('/addUser', addUser, (req, res) => {
