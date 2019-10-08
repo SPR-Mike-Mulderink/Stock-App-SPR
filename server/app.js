@@ -1,4 +1,4 @@
-const { PORT, express, path, bodyParser, stockApi, addUser, removeUser, addStock, removeStock, userValue } = require('./middleware/exports');
+const { PORT, express, path, bodyParser, stockApi, addUser, removeUser, addStock, removeStock, userValue, userLogin } = require('./middleware/exports');
 const app = express();
 
 app.use(bodyParser.json());
@@ -19,6 +19,10 @@ app.post('/addUser', addUser, (req, res) => {
 
 app.post('/addStock', addStock, (req, res) => {
   res.send(`Added ${req.body.stock_ticker} Brah`);
+});
+
+app.post('/userLogin', userLogin, (req, res) => {
+  res.send(`Brah you are LogedIn --> ${res.locals.logedIn}`);
 });
 
 app.delete('/removeUser', removeUser, (req, res) => {
