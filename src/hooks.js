@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import Context from './context';
 
 export const useFetch = (url, initialValue) => {
 
@@ -10,8 +11,8 @@ export const useFetch = (url, initialValue) => {
 
   useEffect(() => {
     fetch(url, {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
+      method: 'POST',
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -22,5 +23,11 @@ export const useFetch = (url, initialValue) => {
   }, []);
 
   return result;
+
+};
+
+export const useAppContext = () => {
+
+  return useContext(Context);
 
 };
