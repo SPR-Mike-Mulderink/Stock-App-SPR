@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import StockToast from './StockToast';
 import Table from 'react-bootstrap/Table';
-import { useFetch } from '../hooks';
+import reducer, { initialState } from '../state/reducer';
+import { useAppContext } from '../hooks';
+import { stockData } from '../state/actions';
+import { STOCK_DATA } from '../state/types';
 
 function Stocks() {
 
@@ -9,6 +12,10 @@ function Stocks() {
 
   // Uncomment Above ^^^ to run fetch. API has a limit.
   const stockPrices = [{ stock: "Commented Out Above", value: "N/A" }]
+
+  const[state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => dispatch(), []);
 
 
   return (

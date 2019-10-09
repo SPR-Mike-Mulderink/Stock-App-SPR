@@ -1,14 +1,23 @@
-import React from 'react';
 import './App.css';
-import Stocks from './components/Stocks'
+import reducer, { initialState } from './state/reducer';
+import React, { useReducer } from 'react';
+import Context from './context';
+import Stocks from './components/Stocks';
+import NavBar from './components/NavBar';
 
 function App() {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <div className="App">
-      <h1>Stock App</h1>
-      <br />
-      <Stocks />
-    </div>
+    <Context.Provider value={{ state, dispatch }}>
+      <div className="App">
+        <br />
+        <NavBar />
+        <br />
+        <Stocks />
+      </div>
+    </Context.Provider>
   );
 }
 
